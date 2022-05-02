@@ -1,8 +1,10 @@
 from dotenv import dotenv_values
 import requests as rq
-import pymongo
 import typing
 
+import sys
+sys.path.insert(0, '..')
+from server.mongo import db_cursor
 
 def auth(
     spotify_client_id: str,
@@ -104,23 +106,13 @@ def all_pods(
 
 if __name__ == "__main__":
     config = dotenv_values(".env")
-
     SPOTIFY_CLIENT_ID = config["SPOTIFY_CLIENT_ID"]
     SPOTIFY_CLIENT_SECRET = config["SPOTIFY_CLIENT_SECRET"]
 
-    MONGO_DB_USERNAME = config["MONGO_DB_USERNAME"]
-    MONGO_DB_PASSWORD = config["MONGO_DB_PASSWORD"]
-    MONGO_DB_ADDRESS = config["MONGO_DB_ADDRESS"]
-
-    conn_str = f"mongodb+srv://{MONGO_DB_USERNAME}" + \
-        f":{MONGO_DB_PASSWORD}@{MONGO_DB_ADDRESS}" + \
-        f"/podcast?retryWrites=true&w=majority"
-
-    client = pymongo.MongoClient(conn_str)
-    db_cursor = client["podcast"]["guy-raz"]
+    cursor = db_cursor()
 
     PODCAST_SHOW_ID = "6E709HRH7XaiZrMfgtNCun"
 
     ACCESS_TOKEN = auth(SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET)
 
-    all_pods(ACCESS_TOKEN, PODCAST_SHOW_ID, db_cursor)
+    all_pods(ACCESS_TOKEN, PODCAST_SHOW_ID, cursor)

@@ -1,3 +1,4 @@
-pymongo==3.11.3
 requests==2.25.1
+sentence_transformers==2.2.0
 python-dotenv==0.20.0
+server==0.0.0
