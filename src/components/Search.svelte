@@ -16,7 +16,7 @@
   let searchQuery: string;
 
   onMount(async () => {
-    const url = 'http://localhost:8000/all/';
+    const url = 'https://raz-search-production.up.railway.app/all/';
     const response = await fetch(url);
     const dataString = await response.json();
     options = JSON.parse(dataString);

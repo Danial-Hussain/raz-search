@@ -1,6 +1,6 @@
 <script context="module">
   export const load = async () => {
-    const url = 'http://localhost:8000/latest-episodes/';
+    const url = 'https://raz-search-production.up.railway.app/latest-episodes/';
     const response = await fetch(url);
     const dataString = await response.json();
     const data = JSON.parse(dataString);
@@ -31,7 +31,7 @@
     search = false;
     loading = true;
     searchQuery = podcastName === '' ? query : podcastName;
-    const url = `http://localhost:8000/search/?query=${query}`;
+    const url = `https://raz-search-production.up.railway.app/search/?query=${query}`;
     const response = await fetch(url);
     const dataString = await response.json();
     data = JSON.parse(dataString);
