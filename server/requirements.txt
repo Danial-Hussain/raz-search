@@ -1,5 +1,5 @@
 numpy==1.22.3
-pymongo==3.11.3
+pymongo[srv]==3.11
 sentence_transformers==2.2.0
 fastapi==0.75.2
 scikit_learn==1.0.2
