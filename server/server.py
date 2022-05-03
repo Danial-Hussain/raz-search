@@ -14,8 +14,8 @@ model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
 app = FastAPI()
 origins = [
-    "http://raz-search.vercel.app/", 
-    "https://raz-search.vercel.app/"
+    "http://raz-search.vercel.app", 
+    "https://raz-search.vercel.app"
 ]
 
 app.add_middleware(

@@ -16,8 +16,9 @@
   <meta property="og:description" content={description} />
   <meta property="og:image" content="https://raz-search.vercel.app/logo.png" />
 
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
   <meta name="twitter:image" content="https://raz-search.vercel.app/logo.png" />
-  <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <Navbar />
