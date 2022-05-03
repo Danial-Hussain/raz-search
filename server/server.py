@@ -13,7 +13,10 @@ cursor = db_cursor()
 model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
 app = FastAPI()
-origins = ["https://raz-search.vercel.app/"]
+origins = [
+    "http://raz-search.vercel.app/", 
+    "https://raz-search.vercel.app/"
+]
 
 app.add_middleware(
     CORSMiddleware, 
